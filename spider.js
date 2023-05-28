@@ -5,7 +5,7 @@ import { mkdirp } from "mkdirp";
 import { urlToFilename } from "./utils.js";
 
 export function spider(url, cb) {
-  const filename = urlToFilename(url);
+  const filename = urlToFilename(url, "downloads");
   fs.access(filename, (err) => {
     if (err && err.code === "ENOENT") {
       console.log(`Downloading ${url} into ${filename}`);
