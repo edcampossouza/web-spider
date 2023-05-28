@@ -1,6 +1,6 @@
 # Callback-based web spider
 
-This repo demonstrates how even a simple algorithm can have its readability impared by the "callback hell" phenomenon
+This repo demonstrates how even a simple algorithm can have its readability impaired by the "callback hell" phenomenon
 
 Compare the branches 'main' and 'callback-hell'
 
