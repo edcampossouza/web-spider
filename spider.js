@@ -1,7 +1,6 @@
 import fs from "fs";
 import path from "path";
 import superagent from "superagent";
-import { mkdirp } from "mkdirp";
 import { urlToFilename } from "./utils.js";
 
 function saveFile(filename, contents, callback) {
@@ -24,7 +23,7 @@ function download(url, filename, callback) {
 }
 
 export function spider(url, cb) {
-  const filename = urlToFilename(url);
+  const filename = urlToFilename(url, "downloads");
   fs.access(filename, (err) => {
     if (!err || err.code !== "ENOENT") return cb(null, filename, false);
     download(url, filename, (err) => {

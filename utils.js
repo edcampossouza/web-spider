@@ -2,7 +2,7 @@ import path from "path";
 import { URL } from "url";
 import slug from "slug";
 
-export function urlToFilename(url) {
+export function urlToFilename(url, base) {
   const parsedUrl = new URL(url);
   const urlPath = parsedUrl.pathname
     .split("/")
@@ -13,7 +13,7 @@ export function urlToFilename(url) {
       return slug(component, { remove: null });
     })
     .join("/");
-  let filename = path.join(parsedUrl.hostname, urlPath);
+  let filename = path.join(base || "", parsedUrl.hostname, urlPath);
   if (!path.extname(filename).match(/htm/)) {
     filename += ".html";
   }
